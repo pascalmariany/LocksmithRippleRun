@@ -173,15 +173,15 @@ export function GameScreen({ level, onBack, onNextLevel, onReplay, isLastLevel }
             <Home className="w-4 h-4" />
           </Button>
           <div className="text-center">
-            <h1 className="text-2xl font-bold text-white">{level.name}</h1>
+            <h1 className="text-3xl font-bold text-white">{level.name}</h1>
             {level.description && (
-              <p className="text-sm text-slate-400">{level.description}</p>
+              <p className="text-sm text-slate-300 font-medium mt-1">{level.description}</p>
             )}
           </div>
           <div className="w-10" />
         </div>
 
-        <div className="bg-slate-800/50 backdrop-blur rounded-lg p-6 space-y-4 transition-all duration-300 hover:bg-slate-800/60 animate-in fade-in duration-300 delay-200">
+        <div className="bg-slate-800/60 backdrop-blur rounded-lg p-6 space-y-4 transition-all duration-300 hover:bg-slate-800/70 animate-in fade-in duration-300 delay-200 border border-slate-700">
           <HUD
             moves={gameState.moves}
             par={level.par}
@@ -192,7 +192,7 @@ export function GameScreen({ level, onBack, onNextLevel, onReplay, isLastLevel }
           />
         </div>
 
-        <div className="relative flex justify-center bg-slate-800/50 backdrop-blur rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/60 animate-in fade-in zoom-in-95 duration-300 delay-300">
+        <div className="relative flex justify-center bg-slate-800/60 backdrop-blur rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/70 animate-in fade-in zoom-in-95 duration-300 delay-300 border border-slate-700">
           <Board
             board={gameState.board}
             selectedCell={selectedCell}
@@ -211,7 +211,7 @@ export function GameScreen({ level, onBack, onNextLevel, onReplay, isLastLevel }
           />
         </div>
 
-        <div className="bg-slate-800/50 backdrop-blur rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/60 animate-in fade-in duration-300 delay-400">
+        <div className="bg-slate-800/60 backdrop-blur rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/70 animate-in fade-in duration-300 delay-400 border border-slate-700">
           <KeyBar
             allowedKeys={level.allowedKeys}
             selectedKey={selectedKey}
@@ -219,7 +219,7 @@ export function GameScreen({ level, onBack, onNextLevel, onReplay, isLastLevel }
           />
         </div>
 
-        <div className="text-center text-xs text-slate-500 space-y-1 animate-in fade-in duration-300 delay-500">
+        <div className="text-center text-sm text-slate-400 space-y-1 animate-in fade-in duration-300 delay-500 font-medium">
           <p>Click a cell to place selected key • Keys: 1-3 • Undo: U • Reset: R</p>
         </div>
       </div>

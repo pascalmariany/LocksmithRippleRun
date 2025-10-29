@@ -28,14 +28,14 @@ export function HUD({ moves, par, stars, canUndo, onUndo, onReset }: HUDProps) {
 
   return (
     <div className="flex items-center justify-between gap-4 flex-wrap">
-      <div className="flex items-center gap-4">
-        <div className="flex flex-col items-center">
-          <div className="text-2xl font-bold">{moves}</div>
-          <div className="text-sm text-muted-foreground">Moves</div>
+      <div className="flex items-center gap-6">
+        <div className="flex flex-col items-center gap-1">
+          <div className="text-3xl font-bold text-white">{moves}</div>
+          <div className="text-sm text-slate-300 font-medium">Moves</div>
         </div>
-        <div className="flex flex-col items-center">
-          <div className="text-2xl font-bold text-yellow-500">{par}</div>
-          <div className="text-sm text-muted-foreground">Par</div>
+        <div className="flex flex-col items-center gap-1">
+          <div className="text-3xl font-bold text-yellow-400">{par}</div>
+          <div className="text-sm text-slate-300 font-medium">Par</div>
         </div>
         <div className="flex items-center gap-1">
           {[1, 2, 3].map((star) => (

@@ -98,37 +98,37 @@ export function VictoryModal({
           </div>
 
           <div className="grid grid-cols-2 gap-4 w-full text-center animate-in fade-in duration-500 delay-300">
-            <div className="p-4 bg-secondary rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-lg">
-              <div className="text-3xl font-bold">{moves}</div>
-              <div className="text-sm text-muted-foreground">Moves</div>
+            <div className="p-5 bg-slate-800/60 rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-lg border border-slate-700">
+              <div className="text-4xl font-bold text-white">{moves}</div>
+              <div className="text-sm text-slate-300 font-medium mt-1">Moves</div>
             </div>
-            <div className="p-4 bg-secondary rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-lg">
-              <div className="text-3xl font-bold text-yellow-500">{par}</div>
-              <div className="text-sm text-muted-foreground">Par</div>
+            <div className="p-5 bg-slate-800/60 rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-lg border border-slate-700">
+              <div className="text-4xl font-bold text-yellow-400">{par}</div>
+              <div className="text-sm text-slate-300 font-medium mt-1">Par</div>
             </div>
-            <div className="col-span-2 p-4 bg-secondary rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-lg">
-              <div className="text-3xl font-bold">{timeSeconds}s</div>
-              <div className="text-sm text-muted-foreground">Time</div>
+            <div className="col-span-2 p-5 bg-slate-800/60 rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-lg border border-slate-700">
+              <div className="text-4xl font-bold text-white">{timeSeconds}s</div>
+              <div className="text-sm text-slate-300 font-medium mt-1">Time</div>
             </div>
           </div>
 
-          <div className="w-full p-4 bg-blue-950/50 border border-blue-800 rounded-lg animate-in fade-in zoom-in-95 duration-500 delay-400 transition-all hover:scale-105 hover:shadow-blue-500/30 hover:shadow-lg">
-            <div className="text-center text-sm text-slate-300 mb-1">Your Score</div>
-            <div className="text-center text-3xl font-bold text-blue-400">
+          <div className="w-full p-5 bg-blue-950/60 border-2 border-blue-700 rounded-lg animate-in fade-in zoom-in-95 duration-500 delay-400 transition-all hover:scale-105 hover:shadow-blue-500/40 hover:shadow-xl">
+            <div className="text-center text-sm text-blue-200 mb-2 font-semibold">Your Score</div>
+            <div className="text-center text-4xl font-bold text-blue-300">
               {score.toLocaleString()}
             </div>
           </div>
 
           {stars === 3 && (
-            <div className="text-center text-green-500 font-semibold animate-in fade-in">
-              Perfect! Under par!
+            <div className="text-center text-green-400 font-bold text-lg animate-in fade-in">
+              ✨ Perfect! Under par! ✨
             </div>
           )}
 
           {!submitted ? (
             <div className="w-full space-y-3 animate-in fade-in duration-500 delay-500">
               <div className="space-y-2">
-                <label className="text-sm text-slate-300">
+                <label className="text-sm text-slate-200 font-semibold">
                   Submit to Leaderboard
                 </label>
                 <Input

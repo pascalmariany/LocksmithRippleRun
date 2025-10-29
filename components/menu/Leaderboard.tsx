@@ -55,8 +55,8 @@ export function Leaderboard({ onBack }: LeaderboardProps) {
           <Button onClick={onBack} variant="outline" size="icon">
             <ArrowLeft className="w-4 h-4" />
           </Button>
-          <h1 className="text-3xl font-bold text-white flex items-center gap-2">
-            <Trophy className="w-8 h-8 text-yellow-500" />
+          <h1 className="text-4xl font-bold text-white flex items-center gap-3">
+            <Trophy className="w-9 h-9 text-yellow-400" />
             Leaderboard
           </h1>
           <div className="w-10" />
@@ -82,20 +82,20 @@ export function Leaderboard({ onBack }: LeaderboardProps) {
           ))}
         </div>
 
-        <Card className="bg-slate-800/50 backdrop-blur border-slate-700 p-6 max-h-[600px] overflow-y-auto">
+        <Card className="bg-slate-800/60 backdrop-blur border-2 border-slate-700 p-6 max-h-[600px] overflow-y-auto">
           {loading ? (
-            <div className="text-center py-12 text-slate-400">Loading...</div>
+            <div className="text-center py-12 text-slate-300 text-lg font-medium">Loading...</div>
           ) : viewMode === 'global' ? (
             <div className="space-y-2">
               {globalEntries.length === 0 ? (
-                <div className="text-center py-12 text-slate-400">
+                <div className="text-center py-12 text-slate-300 text-lg font-medium">
                   No scores yet. Be the first!
                 </div>
               ) : (
                 globalEntries.map((entry, index) => (
                   <div
                     key={index}
-                    className="flex items-center justify-between p-4 rounded-lg bg-slate-700/30 hover:bg-slate-700/50 transition-colors"
+                    className="flex items-center justify-between p-4 rounded-lg bg-slate-700/40 hover:bg-slate-700/60 transition-all duration-200 border border-slate-600/50"
                   >
                     <div className="flex items-center gap-4">
                       <div
@@ -112,13 +112,13 @@ export function Leaderboard({ onBack }: LeaderboardProps) {
                         {index + 1}
                       </div>
                       <div>
-                        <div className="font-semibold text-white">{entry.nickname}</div>
-                        <div className="text-sm text-slate-400">
+                        <div className="font-bold text-white text-lg">{entry.nickname}</div>
+                        <div className="text-sm text-slate-300 font-medium">
                           {entry.levels_completed} levels • {entry.total_stars} stars
                         </div>
                       </div>
                     </div>
-                    <div className="text-xl font-bold text-blue-400">
+                    <div className="text-2xl font-bold text-blue-300">
                       {entry.total_score.toLocaleString()}
                     </div>
                   </div>
@@ -128,14 +128,14 @@ export function Leaderboard({ onBack }: LeaderboardProps) {
           ) : (
             <div className="space-y-2">
               {levelEntries.length === 0 ? (
-                <div className="text-center py-12 text-slate-400">
+                <div className="text-center py-12 text-slate-300 text-lg font-medium">
                   No scores yet. Be the first!
                 </div>
               ) : (
                 levelEntries.map((entry, index) => (
                   <div
                     key={entry.id}
-                    className="flex items-center justify-between p-4 rounded-lg bg-slate-700/30 hover:bg-slate-700/50 transition-colors"
+                    className="flex items-center justify-between p-4 rounded-lg bg-slate-700/40 hover:bg-slate-700/60 transition-all duration-200 border border-slate-600/50"
                   >
                     <div className="flex items-center gap-4">
                       <div
@@ -152,8 +152,8 @@ export function Leaderboard({ onBack }: LeaderboardProps) {
                         {index + 1}
                       </div>
                       <div className="flex-1">
-                        <div className="font-semibold text-white">{entry.nickname}</div>
-                        <div className="flex items-center gap-3 text-sm text-slate-400">
+                        <div className="font-bold text-white text-lg">{entry.nickname}</div>
+                        <div className="flex items-center gap-3 text-sm text-slate-300 font-medium">
                           <span className="flex items-center gap-1">
                             <Target className="w-3 h-3" />
                             {entry.moves} moves
@@ -169,7 +169,7 @@ export function Leaderboard({ onBack }: LeaderboardProps) {
                         </div>
                       </div>
                     </div>
-                    <div className="text-xl font-bold text-blue-400">
+                    <div className="text-2xl font-bold text-blue-300">
                       {entry.score.toLocaleString()}
                     </div>
                   </div>
@@ -179,7 +179,7 @@ export function Leaderboard({ onBack }: LeaderboardProps) {
           )}
         </Card>
 
-        <div className="text-center text-sm text-slate-500">
+        <div className="text-center text-sm text-slate-400 font-medium">
           Score = (Stars × 10,000) - (Moves × 10) - Time in seconds
         </div>
       </div>

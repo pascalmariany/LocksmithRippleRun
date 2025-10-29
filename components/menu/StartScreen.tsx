@@ -25,10 +25,10 @@ export function StartScreen({ onPlay, onLevelSelect, onLeaderboard }: StartScree
           <h1 className="text-6xl font-bold text-white tracking-tight animate-in slide-in-from-bottom-2 duration-500 delay-200">
             Locksmith
           </h1>
-          <p className="text-xl text-amber-500 font-semibold animate-in fade-in duration-500 delay-300">
+          <p className="text-xl text-amber-400 font-semibold animate-in fade-in duration-500 delay-300">
             Ripple Run
           </p>
-          <p className="text-slate-400 text-lg max-w-md mx-auto animate-in fade-in duration-500 delay-400">
+          <p className="text-slate-300 text-lg max-w-md mx-auto animate-in fade-in duration-500 delay-400 leading-relaxed">
             Use keys to unlock all cells. Each key creates a ripple effect that changes the board.
           </p>
         </div>
@@ -65,38 +65,38 @@ export function StartScreen({ onPlay, onLevelSelect, onLeaderboard }: StartScree
         </div>
 
         <div className="pt-8 space-y-4 animate-in fade-in duration-500 delay-700">
-          <div className="flex items-center justify-center gap-6 text-sm text-slate-500">
-            <div className="flex items-center gap-2 hover:text-slate-300 transition-colors duration-200">
+          <div className="flex items-center justify-center gap-6 text-sm text-slate-400 font-medium">
+            <div className="flex items-center gap-2 hover:text-slate-200 transition-colors duration-200">
               <span className="text-2xl">━</span>
               <span>Line Key</span>
             </div>
-            <div className="flex items-center gap-2 hover:text-slate-300 transition-colors duration-200">
+            <div className="flex items-center gap-2 hover:text-slate-200 transition-colors duration-200">
               <span className="text-2xl">✚</span>
               <span>Cross Key</span>
             </div>
-            <div className="flex items-center gap-2 hover:text-slate-300 transition-colors duration-200">
+            <div className="flex items-center gap-2 hover:text-slate-200 transition-colors duration-200">
               <span className="text-2xl">◉</span>
               <span>Wave Key</span>
             </div>
           </div>
 
-          <div className="flex items-center justify-center gap-6 text-sm text-slate-500">
-            <div className="flex items-center gap-2 hover:text-slate-300 transition-colors duration-200">
+          <div className="flex items-center justify-center gap-6 text-sm text-slate-400 font-medium">
+            <div className="flex items-center gap-2 hover:text-slate-200 transition-colors duration-200">
               <span className="text-xl">🔒</span>
               <span>Locked</span>
             </div>
-            <div className="flex items-center gap-2 hover:text-slate-300 transition-colors duration-200">
+            <div className="flex items-center gap-2 hover:text-slate-200 transition-colors duration-200">
               <span className="text-xl">🔓</span>
               <span>Unlocked</span>
             </div>
-            <div className="flex items-center gap-2 hover:text-slate-300 transition-colors duration-200">
+            <div className="flex items-center gap-2 hover:text-slate-200 transition-colors duration-200">
               <span className="text-xl">⚠️</span>
               <span>Jammed</span>
             </div>
           </div>
         </div>
 
-        <div className="text-xs text-slate-600 pt-4">
+        <div className="text-sm text-slate-500 pt-4 font-medium">
           Made for Game Jam 2025 • Theme: Unlocked
         </div>
 
@@ -112,10 +112,10 @@ export function StartScreen({ onPlay, onLevelSelect, onLeaderboard }: StartScree
               alt="Pascal Mariany"
               className="w-16 h-16 rounded-full object-cover border-2 border-slate-600 group-hover:border-slate-400 transition-colors duration-300"
             />
-            <div className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors duration-300">
-              Created by <span className="text-slate-300 font-semibold group-hover:text-white">Pascal Mariany</span>
+            <div className="text-sm text-slate-300 group-hover:text-slate-200 transition-colors duration-300 font-medium">
+              Created by <span className="text-slate-200 font-semibold group-hover:text-white">Pascal Mariany</span>
             </div>
-            <div className="text-xs text-slate-500 group-hover:text-slate-400 transition-colors duration-300">
+            <div className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors duration-300">
               www.pascalmariany.eu
             </div>
           </a>

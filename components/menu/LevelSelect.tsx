@@ -41,10 +41,10 @@ export function LevelSelect({
                 onClick={() => isUnlocked && onSelectLevel(level)}
                 disabled={!isUnlocked}
                 className={`
-                  relative p-6 rounded-lg transition-all
+                  relative p-6 rounded-lg transition-all duration-200
                   ${isUnlocked
-                    ? 'bg-slate-800/50 hover:bg-slate-700/50 cursor-pointer border-2 border-slate-700 hover:border-blue-500'
-                    : 'bg-slate-900/50 cursor-not-allowed border-2 border-slate-800 opacity-50'
+                    ? 'bg-slate-800/60 hover:bg-slate-700/70 cursor-pointer border-2 border-slate-600 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/20'
+                    : 'bg-slate-900/50 cursor-not-allowed border-2 border-slate-800 opacity-40'
                   }
                 `}
               >
@@ -60,7 +60,7 @@ export function LevelSelect({
 
                   {isUnlocked && (
                     <>
-                      <div className="text-xs text-slate-400 text-center truncate">
+                      <div className="text-xs text-slate-300 text-center truncate font-medium">
                         {level.name}
                       </div>
 
@@ -77,7 +77,7 @@ export function LevelSelect({
                         ))}
                       </div>
 
-                      <div className="text-xs text-slate-500 text-center">
+                      <div className="text-xs text-slate-400 text-center font-medium">
                         Par: {level.par}
                       </div>
                     </>
@@ -88,13 +88,13 @@ export function LevelSelect({
           })}
         </div>
 
-        <div className="bg-slate-800/50 backdrop-blur rounded-lg p-6">
-          <div className="flex items-center justify-between text-sm text-slate-400">
+        <div className="bg-slate-800/60 backdrop-blur rounded-lg p-6 border border-slate-700">
+          <div className="flex items-center justify-between text-sm text-slate-300 font-medium">
             <div>
-              Levels Unlocked: {highestUnlocked} / {levels.length}
+              Levels Unlocked: <span className="text-white font-bold">{highestUnlocked}</span> / {levels.length}
             </div>
             <div>
-              Total Stars: {Object.values(levelStars).reduce((a, b) => a + b, 0)} / {levels.length * 3}
+              Total Stars: <span className="text-yellow-400 font-bold">{Object.values(levelStars).reduce((a, b) => a + b, 0)}</span> / {levels.length * 3}
             </div>
           </div>
         </div>

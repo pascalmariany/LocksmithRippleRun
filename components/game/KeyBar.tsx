@@ -29,10 +29,10 @@ export function KeyBar({ allowedKeys, selectedKey, onKeySelect }: KeyBarProps) {
               boxShadow: isSelected ? `0 0 20px ${key.color}40` : undefined,
             }}
           >
-            <span className="text-3xl transition-transform duration-200 group-hover:scale-110">{key.icon}</span>
+            <span className="text-4xl transition-transform duration-200 group-hover:scale-110">{key.icon}</span>
             <div className="text-center">
-              <div className="font-bold text-sm">{key.name}</div>
-              <div className="text-xs opacity-80">{key.description}</div>
+              <div className="font-bold text-base">{key.name}</div>
+              <div className="text-xs opacity-90 font-medium mt-0.5">{key.description}</div>
             </div>
           </Button>
         );

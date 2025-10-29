@@ -23,67 +23,67 @@ export const LEVELS: Level[] = [
     name: 'First Steps',
     width: 6,
     height: 6,
-    par: 3,
+    par: 1,
     allowedKeys: ['cross'],
-    description: 'Learn the Cross Key - Click each lock!',
+    description: 'Click the center',
     board: createBoard(`
       UUUUUU
       UULUUU
+      ULLLUU
+      UULUUU
       UUUUUU
-      UUUULU
       UUUUUU
-      LUUUUU
     `)
   },
   {
     id: '2',
-    name: 'The Line',
+    name: 'Two Crosses',
+    width: 6,
+    height: 6,
+    par: 2,
+    allowedKeys: ['cross'],
+    description: 'Find the two spots',
+    board: createBoard(`
+      UULUUU
+      ULLLUU
+      UULUUU
+      UUULUU
+      UULLLU
+      UUULUU
+    `)
+  },
+  {
+    id: '3',
+    name: 'Line Basics',
     width: 6,
     height: 6,
     par: 2,
     allowedKeys: ['line'],
     description: 'Master the Line Key',
     board: createBoard(`
-      LLLLLL
-      UUUUUU
-      UUUUUU
-      UUUUUU
-      UUUUUU
-      LLLLLL
-    `)
-  },
-  {
-    id: '3',
-    name: 'Corner Pocket',
-    width: 6,
-    height: 6,
-    par: 4,
-    allowedKeys: ['cross', 'line'],
-    description: 'Combine your skills',
-    board: createBoard(`
-      LLLUUU
-      LLLUUU
-      LLLUUU
-      UUULLL
-      UUULLL
-      UUULLL
+      LLLLLU
+      LUUUUL
+      LUUUUL
+      LUUUUL
+      LUUUUL
+      ULLLLL
     `)
   },
   {
     id: '4',
-    name: 'Checkerboard',
+    name: 'Four Corners',
     width: 6,
     height: 6,
-    par: 6,
+    par: 4,
     allowedKeys: ['cross'],
-    description: 'Pattern recognition',
+    description: 'Click each corner',
     board: createBoard(`
-      LULULU
-      ULULUL
-      LULULU
-      ULULUL
-      LULULU
-      ULULUL
+      LLUULL
+      LUUUUL
+      UUUUUU
+      UUUUUU
+      LUUUUL
+      LLUULL
     `)
   },
   {
@@ -91,50 +91,50 @@ export const LEVELS: Level[] = [
     name: 'Wave Intro',
     width: 6,
     height: 6,
-    par: 2,
+    par: 1,
     allowedKeys: ['wave'],
     description: 'Feel the ripple',
     board: createBoard(`
-      UUUUUU
-      UUUUUU
-      UULLUU
-      UULLUU
-      UUUUUU
+      UULUUU
+      ULLLUU
+      LLLLLU
+      ULLLUU
+      UULUUU
       UUUUUU
     `)
   },
   {
     id: '6',
-    name: 'Diamond',
+    name: 'Mix It Up',
     width: 6,
     height: 6,
-    par: 5,
-    allowedKeys: ['cross', 'wave'],
-    description: 'Shine bright',
+    par: 3,
+    allowedKeys: ['cross', 'line'],
+    description: 'Use both keys',
     board: createBoard(`
-      UULLUU
-      ULLLLLU
-      LLLLLL
-      LLLLLL
-      ULLLLLU
-      UULLUU
+      LLLLLU
+      LULUUL
+      LLLLUL
+      LULUUL
+      LUUUUL
+      ULLLLL
     `)
   },
   {
     id: '7',
-    name: 'Stripes',
+    name: 'Wave Pattern',
     width: 6,
     height: 6,
-    par: 3,
-    allowedKeys: ['line', 'wave'],
-    description: 'Vertical challenge',
+    par: 2,
+    allowedKeys: ['wave'],
+    description: 'Overlapping waves',
     board: createBoard(`
-      LULULUL
-      LULULUL
-      LULULUL
-      LULULUL
-      LULULUL
-      LULULUL
+      LLLUUU
+      LLLLUU
+      LLLULU
+      ULULLL
+      UULLLL
+      UUULLL
     `)
   },
   {
@@ -142,9 +142,9 @@ export const LEVELS: Level[] = [
     name: 'The Jam',
     width: 6,
     height: 6,
-    par: 4,
-    allowedKeys: ['cross', 'wave'],
-    description: 'Jammed locks need waves',
+    par: 1,
+    allowedKeys: ['wave'],
+    description: 'Waves unlock jams',
     board: createBoard(`
       UUUUUU
       UUJJUU
@@ -156,120 +156,120 @@ export const LEVELS: Level[] = [
   },
   {
     id: '9',
-    name: 'Border Control',
+    name: 'Complex Mix',
     width: 6,
     height: 6,
-    par: 6,
-    allowedKeys: ['line', 'cross'],
-    description: 'Edge thinking',
+    par: 4,
+    allowedKeys: ['cross', 'line'],
+    description: 'Strategic thinking',
     board: createBoard(`
-      LLLLLL
-      LUUUUL
-      LUUUUL
-      LUUUUL
-      LUUUUL
-      LLLLLL
+      LLLLLU
+      LULUUL
+      LLLUUL
+      LUULLL
+      LUULUL
+      ULLLLL
     `)
   },
   {
     id: '10',
-    name: 'X Marks',
+    name: 'Jam Complex',
     width: 6,
     height: 6,
-    par: 7,
-    allowedKeys: ['cross', 'wave'],
-    description: 'Cross patterns',
+    par: 2,
+    allowedKeys: ['wave', 'cross'],
+    description: 'Waves clear jams',
     board: createBoard(`
-      LUUUUL
-      ULLLLLU
-      ULULLLU
-      ULULLLU
-      ULLLLLU
-      LUUUUL
+      UJJJUU
+      JJJJJU
+      JJJJJJ
+      JJJJJJ
+      JJJJJU
+      UJJJUU
     `)
   },
   {
     id: '11',
-    name: 'Spiral',
+    name: 'All Keys',
     width: 6,
     height: 6,
-    par: 8,
+    par: 3,
     allowedKeys: ['line', 'cross', 'wave'],
-    description: 'All keys unlocked',
+    description: 'Use everything',
     board: createBoard(`
-      LLLLLL
-      UUUUUL
-      ULLLUUL
-      ULLUUL
-      ULUUUL
-      ULLLLLL
+      LLLUUU
+      LULLUU
+      ULLLLU
+      LLLLLU
+      LULLUU
+      LLLUUU
     `)
   },
   {
     id: '12',
-    name: 'Mixed Jam',
+    name: 'Pattern Master',
     width: 6,
     height: 6,
     par: 6,
-    allowedKeys: ['cross', 'wave'],
-    description: 'Strategic jamming',
+    allowedKeys: ['cross', 'line'],
+    description: 'Complex pattern',
     board: createBoard(`
-      LJUUUL
-      JUUUUJ
-      UUUUUU
-      UUUUUU
-      JUUUUJ
-      LJUUUL
+      LULUUL
+      LLUULL
+      ULLLLU
+      ULLLLU
+      LLUULL
+      LUULUL
     `)
   },
   {
     id: '13',
-    name: 'The Grid',
+    name: 'Jam Master',
     width: 6,
     height: 6,
-    par: 9,
-    allowedKeys: ['line', 'cross'],
-    description: 'Line mastery',
+    par: 3,
+    allowedKeys: ['wave', 'cross'],
+    description: 'Strategic jamming',
     board: createBoard(`
-      LULULUL
-      ULULULU
-      LULULUL
-      ULULULU
-      LULULUL
-      ULULULU
+      UJJJUU
+      JJUJJU
+      JULLUJ
+      JULLUJ
+      JJUJJU
+      UJJJUU
     `)
   },
   {
     id: '14',
-    name: 'Fortress',
+    name: 'Advanced Mix',
     width: 6,
     height: 6,
-    par: 10,
+    par: 5,
     allowedKeys: ['line', 'cross', 'wave'],
-    description: 'Heavy defenses',
+    description: 'Think carefully',
     board: createBoard(`
-      LLLLLL
-      LJJJJL
-      LJLLJL
-      LJLLJL
-      LJJJJL
-      LLLLLL
+      LLUULL
+      LULUUL
+      ULLLLU
+      ULLLLU
+      LULUUL
+      LLUULL
     `)
   },
   {
     id: '15',
-    name: 'Master Key',
+    name: 'Master Challenge',
     width: 6,
     height: 6,
-    par: 12,
+    par: 7,
     allowedKeys: ['line', 'cross', 'wave'],
-    description: 'The final test',
+    description: 'The ultimate test',
     board: createBoard(`
       LJLLJL
-      JLLJLJ
-      LJJJJL
-      LJJJJL
-      JLLJLJ
+      JLLLLJ
+      LLULLL
+      LLULLL
+      JLLLLJ
       LJLLJL
     `)
   }

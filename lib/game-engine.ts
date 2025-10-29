@@ -193,3 +193,40 @@ export function undoMove(state: GameState): GameState {
 export function resetGame(level: Level): GameState {
   return initGameState(level);
 }
+
+export function getAffectedCells(keyId: KeyId, row: number, col: number, board: Board): Set<string> {
+  const affected = new Set<string>();
+  const height = board.length;
+  const width = board[0].length;
+
+  switch (keyId) {
+    case 'cross':
+      affected.add(`${row}-${col}`);
+      if (row > 0) affected.add(`${row - 1}-${col}`);
+      if (row < height - 1) affected.add(`${row + 1}-${col}`);
+      if (col > 0) affected.add(`${row}-${col - 1}`);
+      if (col < width - 1) affected.add(`${row}-${col + 1}`);
+      break;
+    case 'line':
+      for (let r = 0; r < height; r++) {
+        affected.add(`${r}-${col}`);
+      }
+      for (let c = 0; c < width; c++) {
+        affected.add(`${row}-${c}`);
+      }
+      break;
+    case 'wave':
+      const radius = 2;
+      for (let r = 0; r < height; r++) {
+        for (let c = 0; c < width; c++) {
+          const dist = Math.abs(r - row) + Math.abs(c - col);
+          if (dist <= radius) {
+            affected.add(`${r}-${c}`);
+          }
+        }
+      }
+      break;
+  }
+
+  return affected;
+}

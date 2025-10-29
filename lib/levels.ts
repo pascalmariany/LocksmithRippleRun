@@ -25,14 +25,14 @@ export const LEVELS: Level[] = [
     height: 6,
     par: 3,
     allowedKeys: ['cross'],
-    description: 'Learn the Cross Key',
+    description: 'Learn the Cross Key - Click each lock!',
     board: createBoard(`
       UUUUUU
+      UULUUU
       UUUUUU
-      UULLUU
-      UULLUU
+      UUUULU
       UUUUUU
-      UUUUUU
+      LUUUUU
     `)
   },
   {

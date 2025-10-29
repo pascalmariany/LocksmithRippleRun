@@ -15,7 +15,8 @@ import {
   undoMove,
   resetGame,
   isSolved,
-  calculateStars
+  calculateStars,
+  getAffectedCells
 } from '@/lib/game-engine';
 import {
   playCellClick,
@@ -46,6 +47,8 @@ export function GameScreen({ level, onBack, onNextLevel, onReplay, isLastLevel }
   const [animatingCells, setAnimatingCells] = useState<Set<string>>(new Set());
   const [particleTrigger, setParticleTrigger] = useState(0);
   const [particlePos, setParticlePos] = useState({ x: 0, y: 0 });
+  const [previewCells, setPreviewCells] = useState<Set<string>>(new Set());
+  const [hoverCell, setHoverCell] = useState<{ row: number; col: number } | null>(null);
 
   const currentStars = calculateStars(gameState.moves, level.par);
 
@@ -56,7 +59,18 @@ export function GameScreen({ level, onBack, onNextLevel, onReplay, isLastLevel }
     setSelectedKey(null);
     setSelectedCell(null);
     setShowVictory(false);
+    setPreviewCells(new Set());
+    setHoverCell(null);
   }, [level]);
+
+  useEffect(() => {
+    if (selectedKey && hoverCell) {
+      const affected = getAffectedCells(selectedKey, hoverCell.row, hoverCell.col, gameState.board);
+      setPreviewCells(affected);
+    } else {
+      setPreviewCells(new Set());
+    }
+  }, [selectedKey, hoverCell, gameState.board]);
 
   const handleCellClick = useCallback((row: number, col: number) => {
     if (!selectedKey) {
@@ -67,10 +81,21 @@ export function GameScreen({ level, onBack, onNextLevel, onReplay, isLastLevel }
       return;
     }
 
+    console.log('=== BEFORE MOVE ===');
+    console.log('Click position:', { row, col });
+    console.log('Selected key:', selectedKey);
+    console.log('Board state:', gameState.board.map(r => r.map(c => c[0].toUpperCase()).join('')).join('\n'));
+
     playCellClick();
     setSelectedCell({ row, col });
 
     const newState = makeMove(gameState, selectedKey, row, col);
+
+    console.log('=== AFTER MOVE ===');
+    console.log('Board state:', newState.board.map(r => r.map(c => c[0].toUpperCase()).join('')).join('\n'));
+    console.log('Moves:', newState.moves);
+    console.log('==================');
+
     setGameState(newState);
 
     const cellKey = `${row}-${col}`;
@@ -173,6 +198,10 @@ export function GameScreen({ level, onBack, onNextLevel, onReplay, isLastLevel }
             selectedCell={selectedCell}
             onCellClick={handleCellClick}
             animatingCells={animatingCells}
+            selectedKey={selectedKey}
+            previewCells={previewCells}
+            onCellHover={(row, col) => setHoverCell({ row, col })}
+            onCellLeave={() => setHoverCell(null)}
           />
           <Particles
             trigger={particleTrigger}

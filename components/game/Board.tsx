@@ -8,6 +8,10 @@ interface BoardProps {
   selectedCell: { row: number; col: number } | null;
   onCellClick: (row: number, col: number) => void;
   animatingCells?: Set<string>;
+  selectedKey?: string | null;
+  previewCells?: Set<string>;
+  onCellHover?: (row: number, col: number) => void;
+  onCellLeave?: () => void;
 }
 
 const CELL_SIZE = 60;
@@ -22,10 +26,11 @@ const COLORS = {
   background: '#1e293b',
   grid: '#334155',
   selected: '#60a5fa',
-  hover: '#475569'
+  hover: '#475569',
+  preview: '#fbbf24'
 };
 
-export function Board({ board, selectedCell, onCellClick, animatingCells = new Set() }: BoardProps) {
+export function Board({ board, selectedCell, onCellClick, animatingCells = new Set(), selectedKey = null, previewCells = new Set(), onCellHover, onCellLeave }: BoardProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const hoverCell = useRef<{ row: number; col: number } | null>(null);
 
@@ -57,11 +62,20 @@ export function Board({ board, selectedCell, onCellClick, animatingCells = new S
         const isSelected = selectedCell?.row === row && selectedCell?.col === col;
         const isHovered = hoverCell.current?.row === row && hoverCell.current?.col === col;
         const isAnimating = animatingCells.has(cellKey);
+        const isPreview = previewCells.has(cellKey);
 
         ctx.beginPath();
         ctx.roundRect(x, y, CELL_SIZE, CELL_SIZE, CELL_RADIUS);
 
-        if (isSelected) {
+        if (isPreview && selectedKey) {
+          ctx.fillStyle = COLORS.preview;
+          ctx.fill();
+          ctx.strokeStyle = '#fff';
+          ctx.lineWidth = 2;
+          ctx.stroke();
+          ctx.shadowColor = COLORS.preview;
+          ctx.shadowBlur = 10;
+        } else if (isSelected) {
           ctx.fillStyle = COLORS.selected;
           ctx.fill();
           ctx.strokeStyle = '#fff';
@@ -96,7 +110,7 @@ export function Board({ board, selectedCell, onCellClick, animatingCells = new S
         ctx.fillText(icon, x + CELL_SIZE / 2, y + CELL_SIZE / 2);
       }
     }
-  }, [board, selectedCell, width, height, animatingCells]);
+  }, [board, selectedCell, width, height, animatingCells, previewCells, selectedKey]);
 
   const handleClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current;
@@ -137,18 +151,22 @@ export function Board({ board, selectedCell, onCellClick, animatingCells = new S
       if (x >= cellX && x <= cellX + CELL_SIZE && y >= cellY && y <= cellY + CELL_SIZE) {
         if (hoverCell.current?.row !== row || hoverCell.current?.col !== col) {
           hoverCell.current = { row, col };
+          onCellHover?.(row, col);
           canvasRef.current?.dispatchEvent(new Event('render'));
         }
       } else {
         hoverCell.current = null;
+        onCellLeave?.();
       }
     } else {
       hoverCell.current = null;
+      onCellLeave?.();
     }
   };
 
   const handleMouseLeave = () => {
     hoverCell.current = null;
+    onCellLeave?.();
   };
 
   return (

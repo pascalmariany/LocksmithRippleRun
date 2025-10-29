@@ -37,7 +37,7 @@ export function StartScreen({ onPlay, onLevelSelect, onLeaderboard }: StartScree
           <Button
             onClick={onPlay}
             size="lg"
-            className="text-base h-12 gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-blue-500/50"
+            className="text-base h-12 gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-green-600 hover:to-green-700 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-green-500/50"
           >
             <Play className="w-4 h-4" />
             Start Playing
@@ -47,7 +47,7 @@ export function StartScreen({ onPlay, onLevelSelect, onLeaderboard }: StartScree
             onClick={onLevelSelect}
             size="lg"
             variant="outline"
-            className="text-base h-12 gap-2 border-slate-600 hover:bg-slate-800 hover:scale-105 transition-all duration-200 hover:border-slate-500"
+            className="text-base h-12 gap-2 border-slate-600 hover:bg-green-600 hover:border-green-500 hover:text-white hover:scale-105 transition-all duration-200"
           >
             <Grid3x3 className="w-4 h-4" />
             Level Select
@@ -57,7 +57,7 @@ export function StartScreen({ onPlay, onLevelSelect, onLeaderboard }: StartScree
             onClick={onLeaderboard}
             size="lg"
             variant="outline"
-            className="text-base h-12 gap-2 border-slate-600 hover:bg-slate-800 hover:scale-105 transition-all duration-200 hover:border-slate-500"
+            className="text-base h-12 gap-2 border-slate-600 hover:bg-green-600 hover:border-green-500 hover:text-white hover:scale-105 transition-all duration-200"
           >
             <Trophy className="w-4 h-4" />
             Leaderboard

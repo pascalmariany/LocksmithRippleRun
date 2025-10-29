@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/ui/button';
 import { Play, Grid3x3, Trophy } from 'lucide-react';
+import { HowToPlay } from './HowToPlay';
 
 interface StartScreenProps {
   onPlay: () => void;
@@ -62,6 +63,8 @@ export function StartScreen({ onPlay, onLevelSelect, onLeaderboard }: StartScree
             <Trophy className="w-4 h-4" />
             Leaderboard
           </Button>
+
+          <HowToPlay />
         </div>
 
         <div className="pt-4 space-y-3 animate-in fade-in duration-500 delay-700">

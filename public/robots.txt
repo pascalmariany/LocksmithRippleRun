@@ -1,0 +1,5 @@
+# robots.txt for Locksmith: Ripple Run
+User-agent: *
+Allow: /
+
+Sitemap: https://www.locksmithripplerun.eu/sitemap.xml

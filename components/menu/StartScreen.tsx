@@ -17,29 +17,29 @@ export function StartScreen({ onPlay, onLevelSelect, onLeaderboard }: StartScree
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500 rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
       </div>
 
-      <div className="max-w-2xl w-full space-y-8 text-center relative z-10">
-        <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <div className="flex items-center justify-center gap-3 mb-8">
-            <span className="text-6xl animate-in zoom-in duration-500 delay-150">🔓</span>
+      <div className="max-w-2xl w-full space-y-4 text-center relative z-10">
+        <div className="space-y-3 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <span className="text-5xl animate-in zoom-in duration-500 delay-150">🔓</span>
           </div>
-          <h1 className="text-6xl font-bold text-white tracking-tight animate-in slide-in-from-bottom-2 duration-500 delay-200">
+          <h1 className="text-5xl font-bold text-white tracking-tight animate-in slide-in-from-bottom-2 duration-500 delay-200">
             Locksmith
           </h1>
-          <p className="text-xl text-amber-400 font-semibold animate-in fade-in duration-500 delay-300">
+          <p className="text-lg text-amber-400 font-semibold animate-in fade-in duration-500 delay-300">
             Ripple Run
           </p>
-          <p className="text-slate-300 text-lg max-w-md mx-auto animate-in fade-in duration-500 delay-400 leading-relaxed">
+          <p className="text-slate-300 text-base max-w-md mx-auto animate-in fade-in duration-500 delay-400 leading-relaxed">
             Use keys to unlock all cells. Each key creates a ripple effect that changes the board.
           </p>
         </div>
 
-        <div className="flex flex-col gap-4 max-w-sm mx-auto animate-in fade-in duration-500 delay-500">
+        <div className="flex flex-col gap-3 max-w-sm mx-auto animate-in fade-in duration-500 delay-500">
           <Button
             onClick={onPlay}
             size="lg"
-            className="text-lg h-14 gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-blue-500/50"
+            className="text-base h-12 gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-blue-500/50"
           >
-            <Play className="w-5 h-5" />
+            <Play className="w-4 h-4" />
             Start Playing
           </Button>
 
@@ -47,9 +47,9 @@ export function StartScreen({ onPlay, onLevelSelect, onLeaderboard }: StartScree
             onClick={onLevelSelect}
             size="lg"
             variant="outline"
-            className="text-lg h-14 gap-3 border-slate-600 hover:bg-slate-800 hover:scale-105 transition-all duration-200 hover:border-slate-500"
+            className="text-base h-12 gap-2 border-slate-600 hover:bg-slate-800 hover:scale-105 transition-all duration-200 hover:border-slate-500"
           >
-            <Grid3x3 className="w-5 h-5" />
+            <Grid3x3 className="w-4 h-4" />
             Level Select
           </Button>
 
@@ -57,14 +57,14 @@ export function StartScreen({ onPlay, onLevelSelect, onLeaderboard }: StartScree
             onClick={onLeaderboard}
             size="lg"
             variant="outline"
-            className="text-lg h-14 gap-3 border-slate-600 hover:bg-slate-800 hover:scale-105 transition-all duration-200 hover:border-slate-500"
+            className="text-base h-12 gap-2 border-slate-600 hover:bg-slate-800 hover:scale-105 transition-all duration-200 hover:border-slate-500"
           >
-            <Trophy className="w-5 h-5" />
+            <Trophy className="w-4 h-4" />
             Leaderboard
           </Button>
         </div>
 
-        <div className="pt-8 space-y-4 animate-in fade-in duration-500 delay-700">
+        <div className="pt-4 space-y-3 animate-in fade-in duration-500 delay-700">
           <div className="flex items-center justify-center gap-6 text-sm text-slate-400 font-medium">
             <div className="flex items-center gap-2 hover:text-slate-200 transition-colors duration-200">
               <span className="text-2xl">━</span>
@@ -96,11 +96,11 @@ export function StartScreen({ onPlay, onLevelSelect, onLeaderboard }: StartScree
           </div>
         </div>
 
-        <div className="text-sm text-slate-500 pt-4 font-medium">
+        <div className="text-xs text-slate-500 pt-2 font-medium">
           Made for Game Jam 2025 • Theme: Unlocked
         </div>
 
-        <div className="pt-8 border-t border-slate-700/50 mt-8 animate-in fade-in duration-500 delay-1000">
+        <div className="pt-4 border-t border-slate-700/50 mt-4 animate-in fade-in duration-500 delay-1000">
           <a
             href="https://www.pascalmariany.eu"
             target="_blank"
@@ -110,12 +110,12 @@ export function StartScreen({ onPlay, onLevelSelect, onLeaderboard }: StartScree
             <img
               src="/1751397607898.jpeg"
               alt="Pascal Mariany"
-              className="w-16 h-16 rounded-full object-cover border-2 border-slate-600 group-hover:border-slate-400 transition-colors duration-300"
+              className="w-12 h-12 rounded-full object-cover border-2 border-slate-600 group-hover:border-slate-400 transition-colors duration-300"
             />
-            <div className="text-sm text-slate-300 group-hover:text-slate-200 transition-colors duration-300 font-medium">
+            <div className="text-xs text-slate-300 group-hover:text-slate-200 transition-colors duration-300 font-medium">
               Created by <span className="text-slate-200 font-semibold group-hover:text-white">Pascal Mariany</span>
             </div>
-            <div className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors duration-300">
+            <div className="text-xs text-slate-400 group-hover:text-slate-300 transition-colors duration-300">
               www.pascalmariany.eu
             </div>
           </a>

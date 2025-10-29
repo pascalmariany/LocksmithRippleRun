@@ -21,15 +21,15 @@ export function LevelSelect({
 }: LevelSelectProps) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex flex-col items-center justify-center p-4">
-      <div className="w-full max-w-4xl space-y-6">
+      <div className="w-full max-w-4xl space-y-4">
         <div className="flex items-center gap-4">
           <Button onClick={onBack} variant="outline" size="icon">
             <ArrowLeft className="w-4 h-4" />
           </Button>
-          <h1 className="text-3xl font-bold text-white">Level Select</h1>
+          <h1 className="text-2xl font-bold text-white">Level Select</h1>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
           {levels.map((level, index) => {
             const levelNum = index + 1;
             const isUnlocked = levelNum <= highestUnlocked;
@@ -41,20 +41,20 @@ export function LevelSelect({
                 onClick={() => isUnlocked && onSelectLevel(level)}
                 disabled={!isUnlocked}
                 className={`
-                  relative p-6 rounded-lg transition-all duration-200
+                  relative p-4 rounded-lg transition-all duration-200
                   ${isUnlocked
                     ? 'bg-slate-800/60 hover:bg-slate-700/70 cursor-pointer border-2 border-slate-600 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/20'
                     : 'bg-slate-900/50 cursor-not-allowed border-2 border-slate-800 opacity-40'
                   }
                 `}
               >
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-white">
+                    <div className="text-2xl font-bold text-white">
                       {levelNum}
                     </div>
                     {!isUnlocked && (
-                      <Lock className="w-4 h-4 mx-auto mt-1 text-slate-600" />
+                      <Lock className="w-3 h-3 mx-auto mt-0.5 text-slate-600" />
                     )}
                   </div>
 
@@ -68,7 +68,7 @@ export function LevelSelect({
                         {[1, 2, 3].map((star) => (
                           <Star
                             key={star}
-                            className={`w-3 h-3 ${
+                            className={`w-2.5 h-2.5 ${
                               star <= stars
                                 ? 'fill-yellow-500 text-yellow-500'
                                 : 'text-slate-700'
@@ -88,7 +88,7 @@ export function LevelSelect({
           })}
         </div>
 
-        <div className="bg-slate-800/60 backdrop-blur rounded-lg p-6 border border-slate-700">
+        <div className="bg-slate-800/60 backdrop-blur rounded-lg p-4 border border-slate-700">
           <div className="flex items-center justify-between text-sm text-slate-300 font-medium">
             <div>
               Levels Unlocked: <span className="text-white font-bold">{highestUnlocked}</span> / {levels.length}

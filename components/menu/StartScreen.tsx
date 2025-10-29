@@ -16,7 +16,12 @@ export function StartScreen({ onPlay, onLevelSelect, onLeaderboard }: StartScree
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
 
   useEffect(() => {
-    setIsMusicPlaying(isMusicActive());
+    if (!isMusicActive()) {
+      startBackgroundMusic();
+      setIsMusicPlaying(true);
+    } else {
+      setIsMusicPlaying(true);
+    }
   }, []);
 
   const toggleMusic = () => {

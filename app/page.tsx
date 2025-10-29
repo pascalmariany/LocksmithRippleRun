@@ -78,7 +78,7 @@ export default function Home() {
 
   const handleReplay = () => {
     const index = LEVELS.findIndex(l => l.id === currentLevel.id);
-    setCurrentLevel(LEVELS[index]);
+    setCurrentLevel({ ...LEVELS[index] });
   };
 
   const updateLevelStars = (levelId: string, stars: number) => {

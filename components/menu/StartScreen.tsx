@@ -1,8 +1,10 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Play, Grid3x3, Trophy } from 'lucide-react';
+import { Play, Grid3x3, Trophy, Music, VolumeX } from 'lucide-react';
 import { HowToPlay } from './HowToPlay';
+import { startBackgroundMusic, stopBackgroundMusic, isMusicActive } from '@/lib/audio';
 
 interface StartScreenProps {
   onPlay: () => void;
@@ -11,8 +13,33 @@ interface StartScreenProps {
 }
 
 export function StartScreen({ onPlay, onLevelSelect, onLeaderboard }: StartScreenProps) {
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+
+  useEffect(() => {
+    setIsMusicPlaying(isMusicActive());
+  }, []);
+
+  const toggleMusic = () => {
+    if (isMusicPlaying) {
+      stopBackgroundMusic();
+      setIsMusicPlaying(false);
+    } else {
+      startBackgroundMusic();
+      setIsMusicPlaying(true);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex flex-col items-center justify-center p-4 overflow-hidden relative">
+      <Button
+        onClick={toggleMusic}
+        size="icon"
+        variant="outline"
+        className="absolute top-4 right-4 z-20 border-slate-600 hover:bg-slate-700 hover:border-slate-500 transition-all duration-200"
+        title={isMusicPlaying ? 'Stop Music' : 'Play Music'}
+      >
+        {isMusicPlaying ? <Music className="w-4 h-4 text-green-400" /> : <VolumeX className="w-4 h-4 text-slate-400" />}
+      </Button>
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500 rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>

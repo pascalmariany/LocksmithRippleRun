@@ -146,11 +146,11 @@ export const LEVELS: Level[] = [
     allowedKeys: ['wave'],
     description: 'Waves unlock jams',
     board: createBoard(`
-      UUUUUU
-      UUJJUU
-      UUJJUU
-      UUJJUU
-      UUJJUU
+      UULUUU
+      ULLLLU
+      LLJJLL
+      ULLLLU
+      UULUUU
       UUUUUU
     `)
   },
